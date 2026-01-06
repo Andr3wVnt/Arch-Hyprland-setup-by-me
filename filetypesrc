@@ -1,0 +1,6 @@
+[EmbedSettings]
+embed-application/json=false
+embed-application/x-docbook+xml=false
+embed-application/x-zerosize=false
+embed-x-scheme-handler/http=false
+embed-x-scheme-handler/https=false

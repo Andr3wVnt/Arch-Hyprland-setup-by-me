@@ -1,0 +1,18 @@
+[global]
+    font = Fira Code 10
+    frame_width = 2
+    padding = 8
+    transparency = 8
+    origin = top-right
+
+[urgency_low]
+    background = "#222222"
+    foreground = "#cccccc"
+
+[urgency_normal]
+    background = "#333333"
+    foreground = "#ffffff"
+
+[urgency_critical]
+    background = "#ff5555"
+    foreground = "#ffffff"

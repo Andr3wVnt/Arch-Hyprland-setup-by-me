@@ -1,0 +1,8 @@
+{
+  "wallpaperFolder": "/home/andrei/Pictures/dotfiles-wallpapers",
+  "posthookScript": "theme-set",
+  "exportThemeLocation": "/home/andrei/.config/tinte/exported-themes",
+  "applyThemeLocation": "/home/andrei/.local/share/dotfiles/themes/tinte",
+  "colorBackend": "imagemagick",
+  "wallpaperBackend": "hyprpaper"
+}

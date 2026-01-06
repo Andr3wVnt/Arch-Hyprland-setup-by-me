@@ -1,0 +1,14 @@
+# Ignore sensitive folders/files
+google-chrome/
+chromium/
+Microsoft/
+Slack/
+discord/
+Session/
+id_rsa
+id_ed25519
+known_hosts
+*_history
+*.log
+Cache/
+CachedData/

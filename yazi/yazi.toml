@@ -1,0 +1,33 @@
+[opener]
+edit = [
+    { run = '${EDITOR:-vi} "$@"', block = true, for = "unix" },
+]
+open = [
+    { run = 'xdg-open "$@"', desc = "Open", for = "linux" },
+]
+play = [
+    { run = 'mpv "$@"', orphan = true, for = "unix" },
+]
+
+[open]
+rules = [
+    # 1. Special case: Always open folders in Yazi itself
+    { name = "*/", use = [ "edit", "open", "reveal" ] },
+
+    # 2. Text files: Keep using Neovim (it's better for code/configs)
+    { mime = "text/*", use = [ "edit", "reveal" ] },
+
+    # 3. JSON/TOML/Conf: Explicitly force Neovim
+    { name = "*.json", use = [ "edit" ] },
+    { name = "*.toml", use = [ "edit" ] },
+    { name = "*.conf", use = [ "edit" ] },
+    { name = "*.sh", use = [ "edit" ] },
+
+    # 4. Media: Use MPV for video/audio
+    { mime = "video/*", use = [ "play", "open" ] },
+    { mime = "audio/*", use = [ "play", "open" ] },
+
+    # 5. EVERYTHING ELSE (Images, PDFs, Office docs): Use the System Default
+    # This falls back to your GUI apps (ImageViewer, Zathura, LibreOffice, etc.)
+    { name = "*", use = [ "open", "reveal" ] },
+]

@@ -1,0 +1,8 @@
+[General]
+ConfigVersion=1
+
+[Notification Messages]
+ShowPasteHugeTextWarning=false
+
+[UiSettings]
+ColorScheme=

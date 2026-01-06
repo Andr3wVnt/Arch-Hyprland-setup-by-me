@@ -1,0 +1,5 @@
+colors:
+  normal:
+    magenta: '0x7fafff'   # soft blue instead of soft/dark purple
+  bright:
+    magenta: '0x9fcfff'   # bright blue instead of bright purple

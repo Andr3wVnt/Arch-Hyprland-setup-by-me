@@ -1,0 +1,23 @@
+# FORCE TRANSPARENCY
+
+[mgr]
+# Make the tabs at the top transparent
+tab_active   = { fg = "green", bg = "reset", bold = true }
+tab_inactive = { fg = "white", bg = "reset" }
+
+# Make the file selection transparent (just reverse the text color instead of a block)
+hovered         = { reversed = true }
+preview_hovered = { underline = true }
+
+# Markers (when you select multiple files)
+marker_selected = { fg = "green", bg = "reset", italic = true }
+marker_copied   = { fg = "yellow", bg = "reset", italic = true }
+marker_cut      = { fg = "red", bg = "reset", italic = true }
+
+# The border around the preview
+border_style = { fg = "gray", bg = "reset" }
+
+[status]
+# The status bar at the bottom
+separator_open  = ""
+separator_close = ""

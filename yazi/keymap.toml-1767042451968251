@@ -1,0 +1,4 @@
+[manager]
+prepend_keymap = [
+    { on = [ "w" ], run = 'shell --confirm "set-wall \"$1\""', desc = "Set Wallpaper" }
+]

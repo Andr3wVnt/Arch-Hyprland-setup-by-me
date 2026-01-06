@@ -1,0 +1,105 @@
+/**
+ * @name LunarCord (HyprLuna theme)
+ * @description A dark, minimaldiscord theme with Material You colors.
+ * @author Nixev
+ * @version 2.0.0
+ * @invite nAHD9keWr
+ * @website https://hyprluna.vercel.app
+*/
+
+@import url("https://refact0r.github.io/midnight-discord/build/midnight.css");
+
+
+/* color options */
+:root {
+    --colors: on; /* turn off to use discord default colors */
+
+    /* text colors */
+    --text-0: #161217; /* text on colored elements */
+    --text-1: #eae0e7; /* default text on colored elements */
+    --text-2: #eae0e7; /* headings and important text */
+    --text-3: #cfc3cd; /* normal text */
+    --text-4: #988e97; /* icon buttons and channels */
+    --text-5: #4c444d; /* muted channels/chats and timestamps */
+
+    /* background and dark colors */
+    --bg-1: #110d12; /* dark buttons when clicked */
+    --bg-2: #1f1a1f; /* dark buttons */
+    --bg-3: #161217; /* spacing, secondary elements */
+    --bg-4: #161217; /* main background color */
+    --hover: #2d282e; /* channels and buttons when hovered */
+    --active: #383339; /* channels and buttons when clicked or selected */
+    --active-2: #161217; /* extra state for transparent buttons */
+    --message-hover: #4c444d; /* messages when hovered */
+
+    /* accent colors */
+    --accent-1: #e6b6f2; /* links and other accent text */
+    --accent-2: #5e386a; /* small accent elements */
+    --accent-3: #d5c0d7; /* accent buttons */
+    --accent-4: #514254; /* accent buttons when hovered */
+    --accent-5: #f5b7b3; /* accent buttons when clicked */
+    --accent-new: #ffb4ab; /* stuff that's normally red like mute/deafen buttons */
+    --mention: linear-gradient(
+        to right,
+        color-mix(in hsl, #5e386a, transparent 70%) 60%,
+        transparent
+    ); /* background of messages that mention you */
+    --mention-hover: linear-gradient(
+        to right,
+        color-mix(in hsl, #5e386a, transparent 75%) 60%,
+        transparent
+    ); /* background of messages that mention you when hovered */
+    --reply: linear-gradient(
+        to right,
+        color-mix(in hsl, #663b38, transparent 70%) 60%,
+        transparent
+    ); /* background of messages that reply to you */
+    --reply-hover: linear-gradient(
+        to right,
+        color-mix(in hsl, #663b38, transparent 75%) 60%,
+        transparent
+    ); /* background of messages that reply to you when hovered */
+
+    /* status indicator colors */
+    --online: #e6b6f2; /* change to #43a25a for default */
+    --dnd: #ffb4ab; /* change to #d83a42 for default */
+    --idle: #f5b7b3; /* change to #ca9654 for default */
+    --streaming: #d5c0d7; /* change to #593695 for default */
+    --offline: #988e97; /* change to #83838b for default offline color */
+
+    /* border colors */
+    --border-light: #2d282e; /* light border color */
+    --border: #383339; /* normal border color */
+    --button-border: #2d282e; /* neutral border color of buttons */
+
+    /* base colors */
+    --red-1: #ffb4ab;
+    --red-2: #93000a;
+    --red-3: #690005;
+    --red-4: #ffdad6;
+    --red-5: #ffb4ab;
+
+    --green-1: #e6b6f2;
+    --green-2: #5e386a;
+    --green-3: #452152;
+    --green-4: #f9d8ff;
+    --green-5: #e6b6f2;
+
+    --blue-1: #e6b6f2;
+    --blue-2: #5e386a;
+    --blue-3: #452152;
+    --blue-4: #f9d8ff;
+    --blue-5: #e6b6f2;
+
+    --yellow-1: #f5b7b3;
+    --yellow-2: #663b38;
+    --yellow-3: #4c2523;
+    --yellow-4: #ffdad7;
+    --yellow-5: #f5b7b3;
+
+    --purple-1: #d5c0d7;
+    --purple-2: #514254;
+    --purple-3: #3a2c3d;
+    --purple-4: #f2dcf3;
+    --purple-5: #d5c0d7;
+}

@@ -1,0 +1,1 @@
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet mem_sleep_default=deep ibt=off nvidia_drm.modeset=1 nvidia.NVreg_EnableGpuFirmware=0"
