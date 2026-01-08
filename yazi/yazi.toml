@@ -1,33 +1,28 @@
+# 1. Define the Apps (Openers)
 [opener]
-edit = [
-    { run = '${EDITOR:-vi} "$@"', block = true, for = "unix" },
+image = [
+	{ run = 'imv "$@"', orphan = true, desc = "View Image" },
 ]
-open = [
-    { run = 'xdg-open "$@"', desc = "Open", for = "linux" },
-]
-play = [
-    { run = 'mpv "$@"', orphan = true, for = "unix" },
+pdf = [
+	{ run = 'zathura "$@"', orphan = true, desc = "Read PDF" },
 ]
 
+# 2. Map Files to Apps
 [open]
-rules = [
-    # 1. Special case: Always open folders in Yazi itself
-    { name = "*/", use = [ "edit", "open", "reveal" ] },
+prepend_rules = [
+	# PDF Rule (Brackets are REQUIRED for 'use')
+	{ name = "*.pdf", use = [ "pdf" ] },
 
-    # 2. Text files: Keep using Neovim (it's better for code/configs)
-    { mime = "text/*", use = [ "edit", "reveal" ] },
-
-    # 3. JSON/TOML/Conf: Explicitly force Neovim
-    { name = "*.json", use = [ "edit" ] },
-    { name = "*.toml", use = [ "edit" ] },
-    { name = "*.conf", use = [ "edit" ] },
-    { name = "*.sh", use = [ "edit" ] },
-
-    # 4. Media: Use MPV for video/audio
-    { mime = "video/*", use = [ "play", "open" ] },
-    { mime = "audio/*", use = [ "play", "open" ] },
-
-    # 5. EVERYTHING ELSE (Images, PDFs, Office docs): Use the System Default
-    # This falls back to your GUI apps (ImageViewer, Zathura, LibreOffice, etc.)
-    { name = "*", use = [ "open", "reveal" ] },
+	# Image Rules (Using MIME catch-all is safer)
+	{ mime = "image/*", use = [ "image" ] },
+	
+	# Fallback for explicit extensions if MIME fails
+	{ name = "*.jpg", use = [ "image" ] },
+	{ name = "*.png", use = [ "image" ] },
+	{ name = "*.jpeg", use = [ "image" ] },
 ]
+
+[[manager.prepend_keymap]]
+on   = [ "C" ]
+run  = 'shell -- "wl-copy < \"$1\"" --confirm'
+desc = "Copy image content to clipboard"

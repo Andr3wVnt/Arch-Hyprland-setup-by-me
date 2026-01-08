@@ -1,14 +1,68 @@
-# Ignore sensitive folders/files
-google-chrome/
-chromium/
-Microsoft/
-Slack/
-discord/
-Session/
-id_rsa
-id_ed25519
-known_hosts
-*_history
-*.log
-Cache/
-CachedData/
+# 1. DENY ALL: Ignore everything by default
+/*
+
+# 2. EXCEPTION: Never ignore the gitignore file itself
+!/.gitignore
+
+# --- ROOT FILES ---
+!/mimeapps.list
+!/starship.toml
+!/user-dirs.dirs
+!/gtkrc-2.0
+
+# --- CORE HYPRLAND & DESKTOP ---
+!/hypr/
+!/waybar/
+!/rofi/
+!/dunst/
+!/mako/
+!/swayosd/
+!/wlogout/
+!/nwg-look/
+!/waypaper/
+!/xdg-desktop-portal/
+!/uwsm/
+!/xsettingsd/
+
+# --- TERMINAL & SHELL ---
+!/fish/
+!/zshrc.d/
+!/starship/
+!/foot/
+!/ghostty/
+!/fastfetch/
+!/lunarfetch/
+
+# --- APPS & TOOLS ---
+!/nvim/
+!/micro/
+!/btop/
+!/htop/
+!/cava/
+!/imv/
+!/mpv/
+!/yazi/
+!/lazygit/
+!/Thunar/
+!/walker/
+!/elephant/
+!/gowall/
+
+# --- THEMING (GTK/QT) ---
+!/gtk-3.0/
+!/gtk-4.0/
+!/Kvantum/
+!/qt5ct/
+!/qt6ct/
+!/matugen/
+!/tinte/
+!/fontconfig/
+
+# --- APP THEMES ---
+!/Vencord/
+!/vesktop/
+!/spicetify/
+!/telegram-desktop/
+
+# --- SYSTEM PATCHES ---
+!/system-patches/

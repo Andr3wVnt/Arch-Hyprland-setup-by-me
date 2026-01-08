@@ -1,0 +1,3 @@
+[binds]
+# Correct variable is lowercase. Quoting prevents crashes on files with spaces.
+y = exec wl-copy < "$imv_current_file"

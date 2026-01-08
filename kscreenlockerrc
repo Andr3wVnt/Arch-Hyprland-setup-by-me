@@ -1,8 +1,0 @@
-[Daemon]
-Autolock=false
-LockGrace=10
-Timeout=0
-
-[Greeter][Wallpaper][org.kde.image][General]
-Image=file:///home/andrei/Downloads/mountain-landscape-3840x2160-24317.jpg
-SlidePaths=/home/andrei/.local/share/wallpapers/,/usr/share/wallpapers/

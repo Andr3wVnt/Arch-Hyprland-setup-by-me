@@ -1,7 +1,0 @@
-[Keyboard]
-NumLock=0
-
-[Libinput][1739][52913][SYNA7DB5:01 06CB:CEB1 Touchpad]
-DisableEventsOnExternalMouse=true
-Enabled=true
-NaturalScroll=true

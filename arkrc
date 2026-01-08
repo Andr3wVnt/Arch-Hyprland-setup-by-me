@@ -1,9 +1,0 @@
-[ExtractDialog]
-DirHistory[$e]=$HOME/Downloads/Orchis/,$HOME/Downloads/chrome/
-
-[General]
-LockSidebar=true
-ShowSidebar=true
-
-[MainWindow]
-StatusBar=Disabled
