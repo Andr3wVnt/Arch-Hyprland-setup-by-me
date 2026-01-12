@@ -85,7 +85,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "ghostty --class=local.floating -e impala"
+    "on-click": "ghostty --class=local.floating -e wlctl"
   },
   "battery": {
     "format": "{capacity}% {icon}",
