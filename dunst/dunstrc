@@ -1,18 +1,47 @@
 [global]
-    font = Fira Code 10
-    frame_width = 2
-    padding = 8
-    transparency = 8
+    # Geometry and Layout
+    width = 300
+    height = 100
     origin = top-right
+    offset = 20x20
+    notification_limit = 5
+
+    # Visuals - Matches your Hyprland "General" settings
+    frame_width = 3
+    # This is the "Blue" border color
+    frame_color = "#89b4fa"
+    
+    # Matches your Hyprland "Decoration" settings
+    corner_radius = 15
+    
+    # Font (Adjust if you use a different one)
+    font = JetBrainsMono Nerd Font 11
+
+    # Spacing
+    padding = 12
+    horizontal_padding = 12
+    text_icon_padding = 10
+    icon_position = left
+    min_icon_size = 48
+    max_icon_size = 64
 
 [urgency_low]
-    background = "#222222"
-    foreground = "#cccccc"
+    # Added 'CC' at the end for transparency
+    background = "#1e1e2eCC"
+    foreground = "#cdd6f4"
+    frame_color = "#89b4fa"
+    timeout = 4
 
 [urgency_normal]
-    background = "#333333"
-    foreground = "#ffffff"
+    # Added 'CC' at the end for transparency
+    background = "#1e1e2eCC"
+    foreground = "#cdd6f4"
+    frame_color = "#89b4fa"
+    timeout = 5
 
 [urgency_critical]
-    background = "#ff5555"
-    foreground = "#ffffff"
+    # Critical can stay opaque if you want, or make it transparent too
+    background = "#1e1e2eCC"
+    foreground = "#cdd6f4"
+    frame_color = "#fab387"
+    timeout = 0

@@ -47,11 +47,10 @@
     // Modules Right
     "modules-right": [
         "pulseaudio",
-        "bluetooth",
         "network",
+        "bluetooth",
         "cpu",
         "custom/hypridle",
         "battery",
-        "custom/exit"
     ]
 }

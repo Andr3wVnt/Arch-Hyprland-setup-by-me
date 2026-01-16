@@ -37,13 +37,14 @@ window#waybar {
 #cpu,
 #bluetooth,
 #pulseaudio,
-#network,
 #clock,
+#network,
 #battery,
-#custom-exit,
+#custom-updates,
 #custom-openwebui,
 #custom-brightness,
 #custom-hypridle,
+#custom-screenrecord,
 #custom-filemanager {
     min-width: 12px;
     margin: 0 8px;
@@ -61,38 +62,4 @@ tooltip {
 
 tooltip label {
     color: @foreground;
-}
-
-/* ========================================= */
-/* Blue/Cyan Theme Overrides           */
-/* ========================================= */
-
-/* 1. WORKSPACE NUMBERS */
-/* This fixes the "sand-ish" color on inactive numbers */
-#workspaces button {
-    color: #ffffff;      /* Inactive numbers: White */
-}
-
-/* The active number will be bright Cyan */
-#workspaces button.active {
-    color: #89dceb;
-}
-
-/* 2. THE LOCK ICON */
-/* Set to Red as requested (indicates inhibition is active) */
-#custom-hypridle.notactive {
-    color: #f38ba8;      /* Red */
-    /* color: #ffffff;   <-- Uncomment this line if you prefer White */
-}
-
-/* 3. OTHER RIGHT-SIDE ICONS */
-/* Keep these Cyan to match the theme */
-#pulseaudio,
-#network,
-#cpu,
-#battery,
-#bluetooth,
-#custom-filemanager,
-#custom-exit {
-    color: #89dceb;
 }
