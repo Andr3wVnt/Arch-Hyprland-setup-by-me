@@ -10,6 +10,9 @@
 !/user-dirs.dirs
 !/gtkrc-2.0
 
+# --- HOME FILES ---
+!home-files/
+
 # --- CORE HYPRLAND & DESKTOP ---
 !/hypr/
 !/waybar/
