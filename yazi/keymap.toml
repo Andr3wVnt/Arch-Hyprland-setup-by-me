@@ -1,4 +1,11 @@
-[mgr]
-prepend_keymap = [
-    { on = [ "w" ], run = 'shell --confirm "set-wall \"$1\""', desc = "Set Wallpaper" }
-]
+# 1. Bashmount Binding
+[[manager.prepend_keymap]]
+on   = [ "M" ]
+run  = "shell bashmount --block --confirm"
+desc = "Open Bashmount"
+
+# 2. Wallpaper Binding (Converted to standard format)
+[[manager.prepend_keymap]]
+on   = [ "w" ]
+run  = 'shell --confirm "set-wall \"$1\""'
+desc = "Set Wallpaper"
