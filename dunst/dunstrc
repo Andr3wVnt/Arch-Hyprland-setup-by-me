@@ -1,47 +1,67 @@
 [global]
-    # Geometry and Layout
-    width = 300
-    height = 100
-    origin = top-right
-    offset = 20x20
-    notification_limit = 5
+    # Display
+    monitor = 0
+    follow = mouse
+    
+    # Geometry: width x height - offset_x - offset_y
+    # This makes it a nice compact box in the top-right
+    geometry = "300x50-20+20"
+    # Distance between notifications (The "Bubble Gap")
+    gap_size = 8
 
-    # Visuals - Matches your Hyprland "General" settings
-    frame_width = 3
-    # This is the "Blue" border color
+    # Make the border wrap around EACH notification individually
+    separator_color = frame
+    
+    # Appearance
+    frame_width = 2
     frame_color = "#89b4fa"
+    separator_color = frame
+    corner_radius = 10
     
-    # Matches your Hyprland "Decoration" settings
-    corner_radius = 15
+    # Text
+    font = JetBrainsMono Nerd Font 10
+    line_height = 4
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
     
-    # Font (Adjust if you use a different one)
-    font = JetBrainsMono Nerd Font 11
+    # The Progress Bar (Volume/Brightness)
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
 
+    # Interaction
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+    
     # Spacing
     padding = 12
     horizontal_padding = 12
-    text_icon_padding = 10
+    text_icon_padding = 12
+    
+    # Icons (Make them large enough to see)
     icon_position = left
     min_icon_size = 48
-    max_icon_size = 64
+    max_icon_size = 48
 
 [urgency_low]
-    # Added 'CC' at the end for transparency
-    background = "#1e1e2eCC"
+    background = "#1e1e2e"
     foreground = "#cdd6f4"
     frame_color = "#89b4fa"
     timeout = 4
 
 [urgency_normal]
-    # Added 'CC' at the end for transparency
-    background = "#1e1e2eCC"
+    background = "#1e1e2e"
     foreground = "#cdd6f4"
     frame_color = "#89b4fa"
     timeout = 5
 
 [urgency_critical]
-    # Critical can stay opaque if you want, or make it transparent too
-    background = "#1e1e2eCC"
+    background = "#1e1e2e"
     foreground = "#cdd6f4"
-    frame_color = "#fab387"
+    frame_color = "#f38ba8"
     timeout = 0
