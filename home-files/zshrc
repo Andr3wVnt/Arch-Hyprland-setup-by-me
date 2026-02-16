@@ -7,6 +7,14 @@ function y() {
     fi
     rm -f -- "$tmp"
 }
+function getplaylist() {
+    echo "Downloading Playlist..."
+    yt-dlp -i -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata \
+    -o "$HOME/Music/%(playlist_title)s/%(title)s.%(ext)s" "$1"
+    
+    echo "Scanning for new music..."
+    mpc update
+}
 
 alias neovim='nvim'
 alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
