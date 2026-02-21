@@ -4,6 +4,12 @@
 # 2. EXCEPTION: Never ignore the gitignore file itself
 !/.gitignore
 
+# --- REPO DOCUMENTATION & ASSETS ---
+!/README.md
+!/INSTALL.md
+!/LICENSE
+!/assets/
+
 # --- ROOT FILES ---
 !/mimeapps.list
 !/starship.toml
