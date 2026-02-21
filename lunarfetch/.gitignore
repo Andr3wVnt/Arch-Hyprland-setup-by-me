@@ -1,0 +1,65 @@
+# 1. DENY ALL: Ignore everything by default
+/*
+
+# 2. EXCEPTION: Never ignore the gitignore file itself
+!/.gitignore
+
+# --- ROOT FILES ---
+!/mimeapps.list
+!/starship.toml
+!/user-dirs.dirs
+!/gtkrc-2.0
+
+# --- HOME FILES ---
+!home-files/
+
+# --- CORE HYPRLAND & DESKTOP ---
+!/hypr/
+!/waybar/
+!/rofi/
+!/dunst/
+!/swayosd/
+!/wlogout/
+!/nwg-look/
+!/waypaper/
+!/xdg-desktop-portal/
+!/uwsm/
+!/xsettingsd/
+
+# --- TERMINAL & SHELL ---
+!/fish/
+!/zshrc.d/
+!/starship/
+!/foot/
+!/ghostty/
+!/fastfetch/
+
+# --- APPS & TOOLS ---
+!/nvim/
+!/btop/
+!/cava/
+!/imv/
+!/mpv/
+!/yazi/
+!/lazygit/
+!/Thunar/
+!/walker/
+!/elephant/
+!/gowall/
+
+# --- THEMING (GTK/QT) ---
+!/gtk-3.0/
+!/gtk-4.0/
+!/qt5ct/
+!/qt6ct/
+!/matugen/
+!/tinte/
+!/fontconfig/
+
+# --- APP THEMES ---
+!/Vencord/
+!/vesktop/
+!/spicetify/
+
+# --- SYSTEM PATCHES ---
+!/system-patches/
