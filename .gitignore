@@ -1,73 +1,75 @@
 # 1. DENY ALL: Ignore everything by default
 /*
 
-# 2. EXCEPTION: Never ignore the gitignore file itself
+# 2. REPO METADATA & HOME FILES
 !/.gitignore
-
-# --- REPO DOCUMENTATION & ASSETS ---
 !/README.md
 !/INSTALL.md
 !/LICENSE
 !/assets/
+!/.zshrc
 
-# --- ROOT FILES ---
-!/mimeapps.list
-!/starship.toml
-!/user-dirs.dirs
-!/gtkrc-2.0
+# 3. CONFIG DIRECTORY (.config/)
+# We whitelist the folder first, then the specific subfolders
+!/.config/
 
-# --- HOME FILES ---
-!home-files/
+# Core Desktop & UI
+!/.config/hypr/
+!/.config/waybar/
+!/.config/rofi/
+!/.config/dunst/
+!/.config/swayosd/
+!/.config/wlogout/
+!/.config/nwg-look/
+!/.config/waypaper/
+!/.config/xdg-desktop-portal/
+!/.config/uwsm/
+!/.config/xsettingsd/
 
-# --- CORE HYPRLAND & DESKTOP ---
-!/hypr/
-!/waybar/
-!/rofi/
-!/dunst/
-!/swayosd/
-!/wlogout/
-!/nwg-look/
-!/waypaper/
-!/xdg-desktop-portal/
-!/uwsm/
-!/xsettingsd/
+# Terminal & Shell
+!/.config/fish/
+!/.config/starship/
+!/.config/foot/
+!/.config/ghostty/
+!/.config/fastfetch/
 
-# --- TERMINAL & SHELL ---
-!/fish/
-!/zshrc.d/
-!/starship/
-!/foot/
-!/ghostty/
-!/fastfetch/
+# Apps & Tools
+!/.config/nvim/
+!/.config/btop/
+!/.config/cava/
+!/.config/imv/
+!/.config/mpv/
+!/.config/yazi/
+!/.config/lazygit/
+!/.config/Thunar/
+!/.config/walker/
+!/.config/elephant/
+!/.config/gowall/
 
-# --- APPS & TOOLS ---
-!/nvim/
-!/btop/
-!/cava/
-!/imv/
-!/mpv/
-!/yazi/
-!/lazygit/
-!/Thunar/
-!/walker/
-!/elephant/
-!/gowall/
+# Theming & Fonts
+!/.config/gtk-3.0/
+!/.config/gtk-4.0/
+!/.config/qt5ct/
+!/.config/qt6ct/
+!/.config/matugen/
+!/.config/tinte/
+!/.config/fontconfig/
 
-# --- THEMING (GTK/QT) ---
-!/gtk-3.0/
-!/gtk-4.0/
-!/qt5ct/
-!/qt6ct/
-!/matugen/
-!/tinte/
-!/fontconfig/
+# App-Specific Themes
+!/.config/Vencord/
+!/.config/vesktop/
+!/.config/spicetify/
 
-# --- APP THEMES ---
-!/Vencord/
-!/vesktop/
-!/spicetify/
-# Telegram directory removed completely to prevent accidental session token leaks.
-# If you have a specific custom theme, target the exact file only.
+# 4. LOCAL DIRECTORY (.local/)
+# Essential for your modular Hyprland "source" imports
+!/.local/
+!/.local/bin/
+!/.local/share/
+!/.local/share/dotfiles/
+!/.local/share/dotfiles/default/
+!/.local/share/dotfiles/default/hypr/
+!/.local/share/dotfiles/default/hypr/conf/
+!/.local/share/dotfiles/default/hypr/conf/*.conf
 
-# --- SYSTEM PATCHES ---
+# 5. SYSTEM PATCHES
 !/system-patches/

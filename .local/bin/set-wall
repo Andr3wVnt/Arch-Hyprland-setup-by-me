@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# 1. Get the image path from Yazi
+NEW_WALL="$1"
+
+# Check if a file was selected
+if [ -z "$NEW_WALL" ]; then
+    notify-send "Error" "No wallpaper selected."
+    exit 1
+fi
+
+# 2. INSTANT CHANGE (Update the running session)
+hyprctl hyprpaper preload "$NEW_WALL"
+hyprctl hyprpaper wallpaper ",$NEW_WALL"
+
+# 3. PERMANENT SAVE (Write to config file for next boot)
+# We overwrite the file to ensure the 'splash = false' rule is always enforced.
+cat > ~/.config/hypr/hyprpaper.conf <<EOF
+splash = false
+preload = $NEW_WALL
+wallpaper = ,$NEW_WALL
+EOF
+
+# 4. OPTIMIZE (Free up RAM)
+# Wait a second for the transition, then unload old images
+sleep 1
+hyprctl hyprpaper unload unused
+
+# 5. Notify
+notify-send "Wallpaper Set"
