@@ -14,68 +14,86 @@ The official Arch repositories are great, but the Arch User Repository (AUR) con
 
 **How to install `paru` (Recommended):**
 Open your terminal and run these commands one by one to compile it from source:
-```bash
-sudo pacman -S --needed base-devel git
-git clone [https://aur.archlinux.org/paru.git](https://aur.archlinux.org/paru.git)
-cd paru
-makepkg -si
-cd .. && rm -rf paru
-```
+
+    sudo pacman -S --needed base-devel git
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si
+    cd .. && rm -rf paru
 
 ---
 
 ## Step 2: Install the Dependencies
 
-Now that you have `paru`, you can install all the necessary packages. Here is exactly what you are installing and why:
+Now that you have `paru`, we will install all the required packages. This list has been extensively filtered to include everything that makes this specific desktop look and function perfectly—from the display manager to the terminal utilities and file managers.
 
 ### 🧱 Core Desktop & Display
-The foundation of the Wayland environment.
-* `hyprland` - The dynamic tiling window manager itself.
-* `xdg-desktop-portal-hyprland` - Essential for screen sharing and app communication on Wayland.
-* `xdg-desktop-portal-gtk` - A fallback portal so standard GTK applications behave correctly.
-* `polkit-gnome` - Provides the pop-up box when an app asks for your sudo/root password.
+* `hyprland` - The dynamic tiling window manager.
+* `xdg-desktop-portal-hyprland` & `xdg-desktop-portal-gtk` - Essential for screen sharing and app communication on Wayland.
+* `polkit-gnome` - Provides the pop-up box when an app asks for your root password.
+* `sddm-git` - The display manager (login screen).
+* `uwsm` - Universal Wayland Session Manager.
 
-### 🎨 Visuals & UI
-The components that create the "Blue Synth" aesthetic.
+### 🎨 Visuals, Bar & Launchers
 * `waybar` - The highly customizable top status bar.
-* `walker` - The blazing-fast application launcher.
-* `dunst` - The notification daemon for those clean, bordered pop-ups.
-* `hyprpaper` - Handles setting the desktop background.
+* `walker` & `rofi` - Blazing-fast application launchers.
+* `dunst` - The notification daemon.
+* `swayosd` - Renders the on-screen display for volume and brightness.
 * `wlogout` - The graphical power/logout menu.
+* `hypridle` & `hyprlock` - Idle management and screen locking.
+* `agsv1-debug` - Backend for custom GTK widgets.
+
+### 🖼️ Wallpapers & Theming
+* `hyprpaper`, `waypaper`, `swww`, `swaybg` - Wallpaper rendering backends and GUIs.
 * `nwg-look` - A GUI tool to easily apply your GTK themes and icons.
+* `matugen-bin`, `python-pywal`, `python-pywalfox`, `gradience`, `tinte`, `sunsetr` - Dynamic color generation and GTK theming utilities.
 
-### ⌨️ Terminal & Workflow
-The core applications for a keyboard-driven workflow.
+### ⌨️ Terminal & Workflow Core
 * `ghostty` - A ridiculously fast, modern terminal emulator.
-* `neovim` - The text editor (We recommend setting it up with the LazyVim distribution).
-* `yazi` - A blazing-fast terminal file manager.
-* `zsh` & `starship` - The default shell and the customizable, beautiful terminal prompt.
-* `btop` & `fastfetch` - Good-looking system monitoring and system info fetching.
+* `neovim` - The text editor.
+* `yazi` & `zoxide` - Blazing-fast terminal file manager and smarter `cd` command.
+* `zsh` & `starship` - The default shell and the customizable terminal prompt.
+* `fzf`, `ripgrep`, `fd`, `bat`, `eza` - Modern, fast CLI replacements for standard Linux commands.
+* `btop`, `nvtop`, `fastfetch` - System monitoring and system info fetching.
+* `glow`, `gum`, `tealdeer` - Markdown rendering and CLI helpers.
+* `lazygit`, `python-pynvim`, `lua-language-server`, `pyright` - Neovim integrations and language servers.
 
-### ⚙️ System Utilities (The "Invisible" Essentials)
-Without these, your media keys, screenshots, and battery optimizations will fail.
-* `grim` & `slurp` - Takes screenshots (`grim`) and lets you select the screen area (`slurp`).
+### ⚙️ System Utilities, Hardware & Audio
+* `power-profiles-daemon` & `cpupower` - Critical for hybrid laptops to unlock deep sleep power states.
+* `brightnessctl` - Required for your keyboard's Brightness keys.
+* `pamixer`, `pavucontrol`, `pulsemixer`, `wiremix` - Audio manipulation and volume routing tools.
+* `network-manager-applet` & `wlctl-git` - GUI and TUI Wi-Fi management.
+* `blueman`, `bluez-utils`, `bluetui` - Bluetooth management tools.
 * `wl-clipboard` & `cliphist` - Allows you to copy/paste text and images, and keeps a clipboard history.
-* `pamixer` & `brightnessctl` - Required for your keyboard's Volume and Brightness keys to work.
-* `power-profiles-daemon` - **Critical for hybrid laptops.** Allows the GPU to enter Deep Sleep, unlocking an incredible ~1.6W idle power draw.
-* `network-manager-applet` - Provides the Wi-Fi icon in Waybar.
-* `blueman` & `bluez-utils` - Handles Bluetooth pairing and device management.
+* `udiskie` - Automounts removable media (USB drives).
+* `trash-cli` - Provides a CLI recycle bin.
+* `pacman-contrib`, `ydotool`, `wtype` - System automation tools.
 
-### 🔤 Fonts & Theming Rules
-* `ttf-jetbrains-mono-nerd` - Essential. Without this, the icons in your terminal and Waybar will look like broken squares.
-* `qt5ct` & `qt6-wayland` - Required to force Qt apps to respect your dark themes and run natively on Wayland.
+### 📸 Screenshots & Recording
+* `grim`, `slurp`, `satty` - Takes screenshots (`grim`), selects the screen area (`slurp`), and annotates them (`satty`).
+* `wf-recorder` & `gpu-screen-recorder` - High-performance screen recording on Wayland.
+* `tesseract` & `tesseract-data-eng` - OCR engines for extracting text from images.
 
-### 📦 The One-Command Install
+### 🗂️ Desktop Applications
+* `thunar`, `thunar-archive-plugin`, `thunar-volman`, `tumbler`, `ffmpegthumbnailer`, `webp-pixbuf-loader` - Graphical file manager and thumbnailers.
+* `file-roller` - GUI archive manager.
+* `imv` & `mpv` (with `mpv-uosc-git`) - Minimalist image and video viewers.
+* `zathura` & `zathura-pdf-mupdf` - Keyboard-driven PDF reader.
+* `qalculate-gtk` - Powerful desktop calculator.
+* `elephant` - Productivity suite.
+
+### 🔤 Fonts, Cursors & Frameworks
+* `ttf-jetbrains-mono-nerd`, `ttf-cascadia-mono-nerd`, `ttf-space-mono-nerd`, `ttf-material-symbols-variable-git` - Essential Nerd Fonts for terminal and Waybar icons.
+* `apple-fonts`, `otf-font-awesome`, `bemoji-git`, `ttf-rubik-vf`, `ttf-readex-pro`, `ttf-gabarito-git`, `ttf-noto-sans-cjk-vf` - System typography and emoji support.
+* `bibata-cursor-theme-bin`, `bibata-cursor-translucent`, `bibata-extra-cursor-theme`, `bibata-rainbow-cursor-theme` - Clean, modern cursor themes.
+* `papirus-icon-theme`, `papirus-folders`, `yaru-icon-theme` - Desktop icon packs.
+* `qt5ct`, `qt6-wayland`, `gjs`, `dart-sass` - Frameworks to force Qt apps to respect dark themes and build SCSS widgets.
+
+### 📦 The Mega-Install Command
 
 Run this command to install everything at once:
 
-```bash
-paru -S hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
-waybar walker dunst hyprpaper wlogout nwg-look \
-ghostty neovim yazi zsh starship btop fastfetch \
-grim slurp wl-clipboard cliphist pamixer brightnessctl power-profiles-daemon \
-network-manager-applet blueman bluez-utils ttf-jetbrains-mono-nerd qt5ct qt6-wayland
-```
+    paru -S hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome sddm-git uwsm waybar walker rofi dunst swayosd wlogout hypridle hyprlock agsv1-debug hyprpaper waypaper swww swaybg nwg-look matugen-bin python-pywal python-pywalfox gradience tinte sunsetr ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd ttf-space-mono-nerd ttf-material-symbols-variable-git ttf-readex-pro ttf-rubik-vf ttf-gabarito-git ttf-noto-sans-cjk-vf otf-font-awesome apple-fonts bemoji-git bibata-cursor-theme-bin bibata-cursor-translucent bibata-extra-cursor-theme bibata-rainbow-cursor-theme papirus-icon-theme papirus-folders yaru-icon-theme ghostty zsh starship neovim yazi zoxide fzf ripgrep fd bat eza btop nvtop fastfetch glow gum lazygit python-pynvim lua-language-server pyright cliphist wl-clipboard tealdeer brightnessctl power-profiles-daemon cpupower pamixer pavucontrol pulsemixer wiremix blueman bluez-utils bluetui network-manager-applet wlctl-git udiskie trash-cli pacman-contrib ydotool wtype grim slurp satty wf-recorder gpu-screen-recorder tesseract tesseract-data-eng thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer webp-pixbuf-loader file-roller imv mpv mpv-uosc-git zathura zathura-pdf-mupdf qalculate-gtk elephant qt5ct qt6-wayland gjs dart-sass
 
 ---
 
@@ -84,25 +102,21 @@ network-manager-applet blueman bluez-utils ttf-jetbrains-mono-nerd qt5ct qt6-way
 Once everything is installed, you need to tell your system to use these configurations.
 
 1. Clone this repository to your computer:
-```bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git) ~/Downloads/blue-synth-dots
-```
+
+    git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git ~/Downloads/blue-synth-dots
 
 2. Backup your existing configuration files (highly recommended):
-```bash
-mkdir -p ~/.config-backup
-mv ~/.config/hypr ~/.config/waybar ~/.config/nvim ~/.config-backup/ 2>/dev/null
-```
+
+    mkdir -p ~/.config-backup
+    mv ~/.config/hypr ~/.config/waybar ~/.config/nvim ~/.config-backup/ 2>/dev/null
 
 3. Copy the contents into your `~/.config` folder:
-```bash
-cp -r ~/Downloads/blue-synth-dots/* ~/.config/
-```
 
-4. If you need to make tweaks to the configuration files, ensure you edit them via Neovim:
-```bash
-nvim ~/.config/hypr/hyprland.conf
-```
+    cp -r ~/Downloads/blue-synth-dots/* ~/.config/
+
+4. If you need to make tweaks to the configuration files, ensure you edit them using your preferred editor:
+
+    nvim ~/.config/hypr/hyprland.conf
 
 5. Log out of your current session, and select **Hyprland** from your login screen.
 
