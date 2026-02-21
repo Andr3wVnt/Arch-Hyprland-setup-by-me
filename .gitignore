@@ -8,6 +8,7 @@
 !/LICENSE
 !/assets/
 !/.zshrc
+!/install.sh
 
 # 3. CONFIG DIRECTORY (.config/)
 # We whitelist the folder first, then the specific subfolders
