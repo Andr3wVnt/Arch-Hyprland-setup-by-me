@@ -18,7 +18,6 @@
 !/waybar/
 !/rofi/
 !/dunst/
-!/mako/
 !/swayosd/
 !/wlogout/
 !/nwg-look/
@@ -34,13 +33,10 @@
 !/foot/
 !/ghostty/
 !/fastfetch/
-!/lunarfetch/
 
 # --- APPS & TOOLS ---
 !/nvim/
-!/micro/
 !/btop/
-!/htop/
 !/cava/
 !/imv/
 !/mpv/
@@ -54,7 +50,6 @@
 # --- THEMING (GTK/QT) ---
 !/gtk-3.0/
 !/gtk-4.0/
-!/Kvantum/
 !/qt5ct/
 !/qt6ct/
 !/matugen/
@@ -65,7 +60,8 @@
 !/Vencord/
 !/vesktop/
 !/spicetify/
-!/telegram-desktop/
+# Telegram directory removed completely to prevent accidental session token leaks.
+# If you have a specific custom theme, target the exact file only.
 
 # --- SYSTEM PATCHES ---
 !/system-patches/
