@@ -1,19 +1,18 @@
-# 🛠️ Manual Installation Guide
+# 🛠️ Installation Guide: Blue Synth Hyprland
 
-Welcome to the Blue Synth Hyprland setup! Since this is Arch Linux, we build things from the ground up. This guide will walk you through installing the required packages and explaining exactly what they do so you are in full control of your system.
+Welcome to the Blue Synth Hyprland setup! This guide will walk you through installing the required packages and explaining exactly what they do so you are in full control of your system.
 
 ---
 
 ## Step 1: Install an AUR Helper
 
-The official Arch repositories are great, but the Arch User Repository (AUR) contains community-maintained packages (like custom themes and certain Wayland utilities). To download them easily, you need an AUR Helper.
+The official Arch repositories are great, but the Arch User Repository (AUR) contains community-maintained packages. To download them easily, you need an AUR Helper.
 
 ### Paru vs. Yay: Which should you pick?
-* **[Paru](https://github.com/Morganamilo/paru):** Implemented in Rust, it is a fast, feature-packed AUR helper that acts as a pacman wrapper. It is known for saner defaults, such as requiring users to review the `PKGBUILD` before installing a package (a great security habit). This is the recommended choice for this setup.
-* **[Yay](https://github.com/Jguer/yay):** Written in Go, this is a classic, battle-tested standard that has been around longer and is highly reliable. 
+* **Paru (Recommended):** Implemented in Rust, it is fast and feature-packed. It requires users to review the `PKGBUILD` before installing (a great security habit).
+* **Yay:** Written in Go, this is a classic, battle-tested standard that is highly reliable and widely used.
 
-**How to install `paru` (Recommended):**
-Open your terminal and run these commands one by one to compile it from source:
+**How to install `paru`:**
 
     sudo pacman -S --needed base-devel git
     git clone https://aur.archlinux.org/paru.git
@@ -21,103 +20,100 @@ Open your terminal and run these commands one by one to compile it from source:
     makepkg -si
     cd .. && rm -rf paru
 
+**How to install `yay`:**
+
+    sudo pacman -S --needed base-devel git
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    cd .. && rm -rf yay
+
 ---
 
 ## Step 2: Install the Dependencies
 
-Now that you have `paru`, we will install all the required packages. This list has been extensively filtered to include everything that makes this specific desktop look and function perfectly—from the display manager to the terminal utilities and file managers.
+Now that you have an AUR helper, we will install the packages that make this desktop function.
 
 ### 🧱 Core Desktop & Display
 * `hyprland` - The dynamic tiling window manager.
-* `xdg-desktop-portal-hyprland` & `xdg-desktop-portal-gtk` - Essential for screen sharing and app communication on Wayland.
-* `polkit-gnome` - Provides the pop-up box when an app asks for your root password.
+* `xdg-desktop-portal-hyprland` & `xdg-desktop-portal-gtk` - Essential for Wayland app communication.
+* `polkit-gnome` - Provides the password pop-up for root actions.
 * `sddm-git` - The display manager (login screen).
 * `uwsm` - Universal Wayland Session Manager.
 
 ### 🎨 Visuals, Bar & Launchers
-* `waybar` - The highly customizable top status bar.
+* `waybar` - The customizable top status bar.
 * `walker` & `rofi` - Blazing-fast application launchers.
 * `dunst` - The notification daemon.
-* `swayosd` - Renders the on-screen display for volume and brightness.
+* `swayosd` - Renders the on-screen display (OSD) for volume and brightness.
 * `wlogout` - The graphical power/logout menu.
 * `hypridle` & `hyprlock` - Idle management and screen locking.
-* `agsv1-debug` - Backend for custom GTK widgets.
 
 ### 🖼️ Wallpapers & Theming
-* `hyprpaper`, `waypaper`, `swww`, `swaybg` - Wallpaper rendering backends and GUIs.
-* `nwg-look` - A GUI tool to easily apply your GTK themes and icons.
-* `matugen-bin`, `python-pywal`, `python-pywalfox`, `gradience`, `tinte`, `sunsetr` - Dynamic color generation and GTK theming utilities.
+* `hyprpaper`, `waypaper`, `swww`, `swaybg` - Wallpaper rendering backends.
+* `nwg-look` - A GUI tool to apply GTK themes and icons.
+* `matugen-bin`, `python-pywal`, `python-pywalfox`, `gradience`, `tinte`, `sunsetr` - Dynamic color and theme generation utilities.
 
 ### ⌨️ Terminal & Workflow Core
-* `ghostty` - A ridiculously fast, modern terminal emulator.
-* `neovim` - The text editor.
-* `yazi` & `zoxide` - Blazing-fast terminal file manager and smarter `cd` command.
-* `zsh` & `starship` - The default shell and the customizable terminal prompt.
-* `fzf`, `ripgrep`, `fd`, `bat`, `eza` - Modern, fast CLI replacements for standard Linux commands.
-* `btop`, `nvtop`, `fastfetch` - System monitoring and system info fetching.
-* `glow`, `gum`, `tealdeer` - Markdown rendering and CLI helpers.
-* `lazygit`, `python-pynvim`, `lua-language-server`, `pyright` - Neovim integrations and language servers.
+* `ghostty` - The modern terminal emulator used in this setup.
+* `neovim`, `lazygit`, `yazi`, `zoxide` - Core CLI productivity tools.
+* `zsh` & `starship` - The shell and the beautiful terminal prompt.
+* `fzf`, `ripgrep`, `fd`, `bat`, `eza` - Modern, fast CLI tools.
+* `btop`, `nvtop`, `fastfetch` - System monitoring and info.
 
-### ⚙️ System Utilities, Hardware & Audio
-* `power-profiles-daemon` & `cpupower` - Critical for hybrid laptops to unlock deep sleep power states.
-* `brightnessctl` - Required for your keyboard's Brightness keys.
-* `pamixer`, `pavucontrol`, `pulsemixer`, `wiremix` - Audio manipulation and volume routing tools.
+### ⚙️ System Utilities & Audio
+* `power-profiles-daemon` - Critical for hybrid laptops (Deep Sleep / 1.6W idle).
+* `pamixer`, `pavucontrol`, `pulsemixer`, `wiremix` - Audio manipulation tools.
 * `network-manager-applet` & `wlctl-git` - GUI and TUI Wi-Fi management.
 * `blueman`, `bluez-utils`, `bluetui` - Bluetooth management tools.
-* `wl-clipboard` & `cliphist` - Allows you to copy/paste text and images, and keeps a clipboard history.
-* `udiskie` - Automounts removable media (USB drives).
-* `trash-cli` - Provides a CLI recycle bin.
-* `pacman-contrib`, `ydotool`, `wtype` - System automation tools.
-
-### 📸 Screenshots & Recording
-* `grim`, `slurp`, `satty` - Takes screenshots (`grim`), selects the screen area (`slurp`), and annotates them (`satty`).
-* `wf-recorder` & `gpu-screen-recorder` - High-performance screen recording on Wayland.
-* `tesseract` & `tesseract-data-eng` - OCR engines for extracting text from images.
-
-### 🗂️ Desktop Applications
-* `thunar`, `thunar-archive-plugin`, `thunar-volman`, `tumbler`, `ffmpegthumbnailer`, `webp-pixbuf-loader` - Graphical file manager and thumbnailers.
-* `file-roller` - GUI archive manager.
-* `imv` & `mpv` (with `mpv-uosc-git`) - Minimalist image and video viewers.
-* `zathura` & `zathura-pdf-mupdf` - Keyboard-driven PDF reader.
-* `qalculate-gtk` - Powerful desktop calculator.
-* `elephant` - Productivity suite.
-
-### 🔤 Fonts, Cursors & Frameworks
-* `ttf-jetbrains-mono-nerd`, `ttf-cascadia-mono-nerd`, `ttf-space-mono-nerd`, `ttf-material-symbols-variable-git` - Essential Nerd Fonts for terminal and Waybar icons.
-* `apple-fonts`, `otf-font-awesome`, `bemoji-git`, `ttf-rubik-vf`, `ttf-readex-pro`, `ttf-gabarito-git`, `ttf-noto-sans-cjk-vf` - System typography and emoji support.
-* `bibata-cursor-theme-bin`, `bibata-cursor-translucent`, `bibata-extra-cursor-theme`, `bibata-rainbow-cursor-theme` - Clean, modern cursor themes.
-* `papirus-icon-theme`, `papirus-folders`, `yaru-icon-theme` - Desktop icon packs.
-* `qt5ct`, `qt6-wayland`, `gjs`, `dart-sass` - Frameworks to force Qt apps to respect dark themes and build SCSS widgets.
+* `wl-clipboard` & `cliphist` - Clipboard management.
 
 ### 📦 The Mega-Install Command
 
-Run this command to install everything at once:
+Run this command to install everything at once (replace `paru` with `yay` if preferred):
 
     paru -S hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome sddm-git uwsm waybar walker rofi dunst swayosd wlogout hypridle hyprlock agsv1-debug hyprpaper waypaper swww swaybg nwg-look matugen-bin python-pywal python-pywalfox gradience tinte sunsetr ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd ttf-space-mono-nerd ttf-material-symbols-variable-git ttf-readex-pro ttf-rubik-vf ttf-gabarito-git ttf-noto-sans-cjk-vf otf-font-awesome apple-fonts bemoji-git bibata-cursor-theme-bin bibata-cursor-translucent bibata-extra-cursor-theme bibata-rainbow-cursor-theme papirus-icon-theme papirus-folders yaru-icon-theme ghostty zsh starship neovim yazi zoxide fzf ripgrep fd bat eza btop nvtop fastfetch glow gum lazygit python-pynvim lua-language-server pyright cliphist wl-clipboard tealdeer brightnessctl power-profiles-daemon cpupower pamixer pavucontrol pulsemixer wiremix blueman bluez-utils bluetui network-manager-applet wlctl-git udiskie trash-cli pacman-contrib ydotool wtype grim slurp satty wf-recorder gpu-screen-recorder tesseract tesseract-data-eng thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer webp-pixbuf-loader file-roller imv mpv mpv-uosc-git zathura zathura-pdf-mupdf qalculate-gtk elephant qt5ct qt6-wayland gjs dart-sass
 
 ---
 
-## Step 3: Link the Dotfiles
+## Step 3: Setup the Shell & Link Dotfiles
 
-Once everything is installed, you need to tell your system to use these configurations.
+Once everything is installed, you need to configure your shell and link the modular files.
 
-1. Clone this repository to your computer:
+1. **Install Oh My Zsh:**
 
-    git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git ~/Downloads/blue-synth-dots
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-2. Backup your existing configuration files (highly recommended):
+2. **Clone this repository into your home directory:**
 
-    mkdir -p ~/.config-backup
-    mv ~/.config/hypr ~/.config/waybar ~/.config/nvim ~/.config-backup/ 2>/dev/null
+    git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git ~/dotfiles
 
-3. Copy the contents into your `~/.config` folder:
+3. **Backup existing configs and link the new ones:**
+   We use symbolic links (`ln -sfn`) so that changes in your `~/dotfiles` folder reflect on your system immediately.
 
-    cp -r ~/Downloads/blue-synth-dots/* ~/.config/
+    # Recreate modular folders
+    mkdir -p ~/.config
+    mkdir -p ~/.local/bin
+    mkdir -p ~/.local/share/dotfiles/default/hypr/conf
 
-4. If you need to make tweaks to the configuration files, ensure you edit them using your preferred editor:
+    # Link standard configs
+    ln -sfn ~/dotfiles/.config/hypr ~/.config/hypr
+    ln -sfn ~/dotfiles/.config/waybar ~/.config/waybar
+    ln -sfn ~/dotfiles/.config/nvim ~/.config/nvim
+    ln -sfn ~/dotfiles/.config/ghostty ~/.config/ghostty
+    ln -sfn ~/dotfiles/.config/yazi ~/.config/yazi
+    ln -sfn ~/dotfiles/.config/walker ~/.config/walker
 
-    nvim ~/.config/hypr/hyprland.conf
+    # Link modular imports and scripts
+    ln -sfn ~/dotfiles/.local/share/dotfiles ~/.local/share/dotfiles
+    ln -sfn ~/dotfiles/.local/bin ~/.local/bin
+    ln -sf ~/dotfiles/.zshrc ~/.zshrc
 
-5. Log out of your current session, and select **Hyprland** from your login screen.
+4. **Enable Essential Services:**
 
-Enjoy the Blue Synth experience!
+    sudo systemctl enable --now bluetooth.service
+    sudo systemctl enable --now NetworkManager.service
+    sudo systemctl enable --now power-profiles-daemon.service
+
+5. **Final Step:**
+   Log out of your current session, select **Hyprland** from your login screen, and enjoy the experience!
