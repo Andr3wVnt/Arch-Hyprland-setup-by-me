@@ -42,5 +42,5 @@ A highly optimized, efficient Wayland setup for Arch Linux. Designed for keyboar
 
 Ready to install? Choose your path:
 
-* **[Automatic Installation (Coming Soon)](#)**
+* Automatic Installation: git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git ~/dotfiles && cd ~/dotfiles && chmod +x install.sh && ./install.sh
 * **[Manual Installation Guide](INSTALL.md)**
