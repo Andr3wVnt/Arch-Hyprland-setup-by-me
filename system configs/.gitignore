@@ -11,6 +11,7 @@
 !/install.sh
 
 # 3. CONFIG DIRECTORY (.config/)
+# We whitelist the folder first, then the specific subfolders
 !/.config/
 
 # Core Desktop & UI
@@ -61,6 +62,7 @@
 !/.config/spicetify/
 
 # 4. LOCAL DIRECTORY (.local/)
+# Essential for your modular Hyprland "source" imports
 !/.local/
 !/.local/bin/
 !/.local/share/
@@ -72,4 +74,19 @@
 
 # 5. SYSTEM PATCHES
 !/system-patches/
+
+# 6. SYSTEM CONFIGS
+# Whitelist your custom directory
 !/system configs/
+
+# SECURITY: Re-blacklist sensitive files just in case they ever get copied here
+/system configs/shadow
+/system configs/gshadow
+/system configs/passwd
+/system configs/group
+/system configs/fstab
+/system configs/sudoers
+/system configs/sudoers.d/
+/system configs/hostname
+/system configs/hosts
+/system configs/ssh/
