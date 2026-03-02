@@ -42,6 +42,17 @@ ln -sfn "$REPO_DIR/.local/share/dotfiles" "$HOME/.local/share/dotfiles"
 ln -sfn "$REPO_DIR/.local/bin" "$HOME/.local/bin"
 ln -sf "$REPO_DIR/.zshrc" "$HOME/.zshrc"
 
+# --- 🛡️ System-Level Configs (Requires Root) ---
+echo "🛡️ Applying system-wide configurations (Pacman, SDDM, Modprobe)..."
+
+if [ -d "$HOME/dotfiles/etc" ]; then
+    echo "You will be prompted for your sudo password to copy /etc files."
+    sudo cp -rv "$HOME/dotfiles/etc/"* /etc/
+    echo "✅ System configs applied successfully."
+else
+    echo "⏩ No /etc directory found in dotfiles. Skipping system configs."
+fi
+
 # 6. Enable Services
 echo "⚙️  Starting system services..."
 sudo systemctl enable --now bluetooth.service

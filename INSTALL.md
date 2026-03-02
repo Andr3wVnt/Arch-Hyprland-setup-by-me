@@ -69,7 +69,13 @@ This setup expects a specific folder structure to resolve modular imports (like 
 
 ---
 
-## Step 5: Enable Essential Services
+## Step 5: Apply system-wide configs
+    # Copy Pacman, SDDM, Bluetooth, and NVIDIA rules
+        sudo cp -rv ~/dotfiles/etc/* /etc/
+
+   *Note: You may need to adjust some of these files depending on your hardware.*
+
+## Step 6: Enable Essential Services
 
 Run these to ensure your hardware and login screen work correctly.
 
